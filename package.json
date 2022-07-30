@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "pstudio": "npx prisma studio",
-    "db-connect": "pscale connect manga-t3" 
+    "db-connect": "pscale connect manga-t3",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "4.1.1",
