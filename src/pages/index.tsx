@@ -1,21 +1,11 @@
-import type { NextPage } from 'next';
 import { prisma } from '@/db/client';
+import { trpc } from '@/utils/trpc';
 import { Manga } from '@prisma/client';
 
-export default function Home({ mangaList }: { mangaList: string }) {
-  return JSON.parse(mangaList).map((manga: Manga) => (
-    <div className="font-bold" key={manga.id}>
-      {manga.name}
-    </div>
-  ));
+export default function Home() {
+  const { data, isLoading } = trpc.useQuery(['hello']);
+
+  if (isLoading) return <div>Loading...</div>;
+
+  return <div>{data?.greeting}</div>;
 }
-
-export const getServerSideProps = async () => {
-  const mangaList = await prisma.manga.findMany();
-
-  return {
-    props: {
-      mangaList: JSON.stringify(mangaList),
-    },
-  };
-};
