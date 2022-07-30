@@ -10,7 +10,7 @@ export default function Home({ mangaList }: { mangaList: string }) {
 }
 
 export const getServerSideProps = async () => {
-  const mangaList = await prisma.manga.findMany();
+  // const mangaList = await prisma.manga.findMany();
 
   return {
     props: {
