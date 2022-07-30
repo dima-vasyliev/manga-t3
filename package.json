@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pstudio": "npx prisma studio",
+    "db-connect": "pscale connect manga-t3" 
   },
   "dependencies": {
     "@prisma/client": "4.1.1",
