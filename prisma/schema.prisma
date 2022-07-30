@@ -18,6 +18,5 @@ model Manga {
   name String
   year String
   author String
-  imageUrl String
   rate Float?
 }
