@@ -4,7 +4,9 @@ import { Manga } from '@prisma/client';
 
 export default function Home({ mangaList }: { mangaList: string }) {
   return JSON.parse(mangaList).map((manga: Manga) => (
-    <div key={manga.id}>{manga.name}</div>
+    <div className="font-bold" key={manga.id}>
+      {manga.name}
+    </div>
   ));
 }
 
