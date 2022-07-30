@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { prisma } from '@/db/client';
 import { Manga } from '@prisma/client';
 
 export default function Home({ mangaList }: { mangaList: string }) {
@@ -10,11 +11,11 @@ export default function Home({ mangaList }: { mangaList: string }) {
 }
 
 export const getServerSideProps = async () => {
-  // const mangaList = await prisma.manga.findMany();
+  const mangaList = await prisma.manga.findMany();
 
   return {
     props: {
-      mangaList: [],
+      mangaList: JSON.stringify(mangaList),
     },
   };
 };
