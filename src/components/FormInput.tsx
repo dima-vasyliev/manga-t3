@@ -14,7 +14,7 @@ const FormInput: FC<{ label: string; name: string }> = ({ label, name }) => {
   return (
     <FormControl isInvalid={!!isError}>
       <FormLabel>{label}</FormLabel>
-      <Input {...field} />
+      <Input focusBorderColor="primary" {...field} />
       {isError && <FormErrorMessage>{error}</FormErrorMessage>}
     </FormControl>
   );

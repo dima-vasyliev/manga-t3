@@ -1,14 +1,16 @@
+import Header from '@/components/Header';
+import ThemeProvider from '@/theme/ThemeProvider';
 import { withTRPC } from '@trpc/next';
 import { AppType } from 'next/dist/shared/lib/utils';
-import { AppRouter } from '../server/router';
 import superjson from 'superjson';
-import { ChakraProvider } from '@chakra-ui/react';
+import { AppRouter } from '../server/router';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider>
+    <ThemeProvider>
+      <Header />
       <Component {...pageProps} />
-    </ChakraProvider>
+    </ThemeProvider>
   );
 };
 

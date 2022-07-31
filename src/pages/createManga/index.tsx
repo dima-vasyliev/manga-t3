@@ -1,8 +1,9 @@
+import Card from '@/components/Card';
 import FormInput from '@/components/FormInput';
 import { ERROR_MESSAGES } from '@/constants/validation';
 import { InferMutationInput, trpc } from '@/utils/trpc';
 import { parseZodErrors } from '@/utils/validation';
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Heading } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import { z } from 'zod';
@@ -29,14 +30,15 @@ export default function CreateManga() {
       initialValues={{ name: '', year: '', author: '' }}
     >
       <Form>
-        <Box mt={10} mx="auto" maxWidth={500} display="grid" gridGap={4}>
+        <Card mt={10} mx="auto" maxWidth={500} display="grid" gridGap={4}>
+          <Heading size="lg">Додати мангу</Heading>
           <FormInput label="Назва" name="name" />
           <FormInput label="Рік" name="year" />
           <FormInput label="Автор" name="author" />
           <Button type="submit" isLoading={createManga.isLoading}>
             Зберегти
           </Button>
-        </Box>
+        </Card>
       </Form>
     </Formik>
   );
