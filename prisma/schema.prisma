@@ -15,7 +15,7 @@ datasource db {
 model Manga {
   id String @id @default(cuid())
   createdAt DateTime @default(now())
-  name String
+  name String 
   year String
   author String
   rate Float?
