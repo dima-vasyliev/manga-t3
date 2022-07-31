@@ -2,9 +2,11 @@ import { prisma } from '@/db/client';
 import * as trpc from '@trpc/server';
 import * as trpcNext from '@trpc/server/adapters/next';
 import { z } from 'zod';
+import superjson from 'superjson';
 
 export const appRouter = trpc
   .router()
+  .transformer(superjson)
   .query('hello', {
     input: z
       .object({
