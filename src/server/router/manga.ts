@@ -5,9 +5,18 @@ import { z } from 'zod';
 export const mangaRouter = trpc
   .router()
   .query('getAll', {
-    async resolve() {
-      return await prisma.manga.findMany();
-    },
+    resolve: async () => await prisma.manga.findMany(),
+  })
+  .query('get-by-id', {
+    input: z.object({
+      id: z.string(),
+    }),
+    resolve: async ({ input }) =>
+      await prisma.manga.findFirst({
+        where: {
+          id: input.id,
+        },
+      }),
   })
   .mutation('create', {
     input: z.object({
@@ -15,9 +24,8 @@ export const mangaRouter = trpc
       year: z.string().length(4),
       author: z.string(),
     }),
-    async resolve({ input }) {
-      return await prisma.manga.create({
+    resolve: async ({ input }) =>
+      await prisma.manga.create({
         data: input,
-      });
-    },
+      }),
   });
