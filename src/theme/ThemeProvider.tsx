@@ -1,11 +1,4 @@
-import {
-  ChakraProvider,
-  extendTheme,
-  withDefaultColorScheme,
-  theme as chakraTheme,
-  ThemeConfig,
-  ColorModeScript,
-} from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, ThemeConfig } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 const config: ThemeConfig = {
